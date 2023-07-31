@@ -1,0 +1,8 @@
+<div class="main-content">
+    <h1>Ask me a Question!</h1>
+    <p>Enter your questions here</p>
+    <input type="text" [(ngModel)]="question" /><button (click)="submitQuestion()">Enter</button>
+    <div class="question-response">
+        {{response}}
+    </div>
+</div>

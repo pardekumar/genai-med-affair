@@ -1,0 +1,28 @@
+.container-fluid {
+  justify-content: flex-start;
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px solid #f8f8f8;
+  background: #f8f8f8;
+}
+
+.navbar-nav {
+  height: 80vh;
+  overflow: auto;
+}
+
+.main-section {
+    width:100%;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+p {
+  float: left;
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: 4px;
+  font-weight: bold;
+}

@@ -1,0 +1,25 @@
+.login-message{
+    font-size: 14px;
+    text-align: center;
+    width:100%
+}
+.button-style{
+    margin-top: 15px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ::ng-deep #okta-sign-in.auth-container.main-container {
+    height: 256px;
+} */
+#sign-in-widget{
+top: -61px !important;
+    position: relative !important;
+}
+::ng-deep .okta-sign-in-header{
+    display: none !important;
+}
+::ng-deep .okta-form-title{
+    display: none !important;
+}

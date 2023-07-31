@@ -1,0 +1,30 @@
+{
+  
+    "bannerImages": {
+        "loginPage": "assets/images/Banner.png",
+        "dashboardPage": "assets/images/Banner.png",
+        "fileUploadPage": "assets/images/Banner.png"
+    },
+    "serverErrorMsg": "Sorry!! Something went wrong. Please try again later.",
+    "tokenExpireMsg": "Your session has expired. You will be redirected to dashboard.",
+    "SessionExpiredMsg": "Your session has expired. Please re-login.",
+    "BadRequestInFileUpload": "Pdf to docx conversion has failed.",
+    "BadRequestForAnnotation": "Can't create PLS without annotation.",
+    "ForRemaningErrorMsg": "Something went wrong. Please try again later.",
+    "plsCreationMsg": "Are you sure you want to create plain language summary",
+    "summaryListHeader": "Here are your summaries ",
+    "noSummaries": "PLS engine hasn't detected any files yet ... ",
+    "pdfToDocxConversion": "Please wait, while manuscript is being loaded ...",
+    "deleteConfirmedMsg": "Your record was deleted successfully.",
+    "minimumWordsForAnnotation": 10,
+    "noTOCExist": "Table of contents does not exist for this document",
+
+    "umls": {
+        "mandatoryMsg": "Entity and Replace/Ignore/Acronym/Glossary fields are mandatory.",
+        "invalidCSVFileErrorMsg": "The csv file should have the following columns : \n Entity, Simplified Entity, Replace/Ignore/Acronym/Glossary, therapeutic_area",
+        "uploadConfirmMsg": "This will replace entire dictionary. Do you really wish to upload?\nPress OK to confirm.",
+        "mandatoryEntityMsg": "Entity field is mandatory.",
+        "mandatoryReplaceMsg": "Replace/Ignore/Acronym/Glossary field is mandatory.",
+        "duplicateEntityMsg": "This file contains duplicate entities."
+    }
+}

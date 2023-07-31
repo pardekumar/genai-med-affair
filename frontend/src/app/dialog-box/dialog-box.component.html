@@ -1,0 +1,42 @@
+<h1 mat-dialog-title><strong>{{action}}</strong></h1>
+<div mat-dialog-content [formGroup]="form">
+  <mat-form-field *ngIf="action != 'Delete'">
+    <input required placeholder="{{action}} Entity" matInput formControlName="entity">
+  </mat-form-field>
+  <span class="margin-lft"></span>
+  <mat-form-field *ngIf="action != 'Delete'">
+    <input placeholder="{{action}} Simplified Entity" matInput formControlName="simplifiedTerm">
+  </mat-form-field>
+  <span class="margin-lft"></span>
+  <mat-form-field  *ngIf="action != 'Delete'">
+    <mat-label>Therapeutic Area</mat-label>
+    <input type="text"
+           placeholder="Pick or Add New"
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto"
+           [(ngModel)]="therapeuticArea">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <span class="margin-lft"></span>
+  <mat-form-field *ngIf="action != 'Delete'">
+    <mat-label>Replace/Ignore/Acronym/Glossary</mat-label>
+    <mat-select formControlName="replaceEntity" required>
+      <mat-option *ngFor="let dictAction of dictActionList" [value]="dictAction.value">
+        {{dictAction.key}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p *ngIf="action == 'Delete'">
+    Are you sure you want to delete "<b>{{local_data.entity}}</b>"?
+  </p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()" mat-stroked-button color="primary" [disabled]="form.invalid">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>

@@ -1,0 +1,64 @@
+annotation {
+    background-color: #2185d0 !important;
+    border: 1px dashed white;
+    color: white;
+    z-index: 2000;
+}
+
+annotation[current=true] {
+    position: relative;
+}
+
+div[type=methods] > *{
+    background-color: #f2711c !important;
+    user-select: none;
+  cursor:not-allowed ;
+}
+div[type=methods] {
+    background-color: #f2711c !important;
+    user-select: none;
+  cursor:not-allowed ;
+}
+
+div[type=objectives] {
+    background-color: #009c95 !important;
+    user-select: none;
+  cursor:not-allowed ;
+}
+div[type=objectives] > *{
+    background-color: #009c95 !important;
+    user-select: none;
+    cursor:not-allowed ;
+}
+
+div[type=Introduction] {
+    background-color: #8121d0 !important;
+    user-select: none;
+    cursor:not-allowed ;
+}
+div[type=Introduction]  > *{
+    background-color: #8121d0 !important;
+    user-select: none;
+    cursor:not-allowed ;
+}
+div[type=results] {
+    background-color: #2185d0 !important;
+    user-select: none;
+    cursor:not-allowed ;
+}
+div[type=results] > * {
+    background-color: #2185d0 !important;
+    user-select: none;
+    cursor:not-allowed ;
+}
+div[type=conclusions] {
+    background-color: #21d08d !important;
+    user-select: none;
+    cursor:not-allowed ;
+  
+}
+div[type=conclusions] > * {
+    background-color: #21d08d !important;
+user-select: none;
+    cursor:not-allowed ;
+}

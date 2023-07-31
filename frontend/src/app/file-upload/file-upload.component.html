@@ -1,0 +1,11 @@
+upload page
+<h1>
+    manikanta
+</h1>
+
+<input type="file" (change)="upload($event.target.files)" />
+Upload Percent: {{percentDone}}% <br />
+
+<ng-container *ngIf="uploadSuccess">
+  Upload Successful
+</ng-container> 

@@ -1,0 +1,10 @@
+python-docx
+pandas
+tiktoken
+langchain
+numpy
+rouge-score
+nltk
+openai
+pdfplumber
+flask

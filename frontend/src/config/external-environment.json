@@ -1,0 +1,18 @@
+
+{
+     "production": true,
+    "issuer": "https://dev-53554453.okta.com/oauth2/default",
+    "clientId": "0oa1fzwqrnL0Kd4mL5d7",
+    
+    "redirectUri": "http://localhost:8000/login/callback",
+    "scopes": [
+        "openid",
+        "profile",
+        "email"
+      ],
+    "logoutUrl": "http://localhost:8000",
+    "serverUrl": "http://localhost/"
+  }
+  
+  
+   

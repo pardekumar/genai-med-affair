@@ -1,0 +1,130 @@
+<div class="container-fluid pl-5 pr-5 home-page">
+    <div class="banner-image">
+        <img class="w-100" src="{{bannerImage}}" />
+    </div>
+</div>
+   
+          
+<!--                
+                <input type="file" (change)="upload($event.target.files)" >
+Upload Percent: {{percentDone}}% <br />  -->
+<div class="row">
+<div class="custom-file col-md-5">
+    <span class="user" style="color: red; padding-left: 43px; top: 10px; position: absolute;">Hello {{username}} <span class="signout" (click)="logout()">(sign out)</span></span>  <!-- <span class="signout" style="margin-left: 60%; cursor: pointer;" (click)="goToDictionary()"> Dictionary</span> -->
+   <span><button id="downloadDict" mat-raised-button color="warn" (click)="goToDictionary()" hidden></button></span>
+   <span><button id="goToOpenAI" mat-raised-button color="warn" (click)="goToOpenAI()" hidden></button></span>
+   <!-- <span><button id="goToPDF" mat-raised-button color="warn" (click)="goToPdfViewer()" hidden></button></span> -->
+   <!-- <input type="file" class="custom-file-input" multiple accept="application/pdf" id="importFile" (change)="onFileSelect($event)"> -->
+   <input type="file" class="custom-file-input" multiple accept="application/pdf" id="importFile" (change)="uploadPDF($event)">
+   <!-- <label class="pdfViewer-label" #labelImport for="goToPDF">PDF Viewer </label> -->
+   <label class="custom-file-label" #labelImport for="importFile">Upload Manuscript </label>
+   <label class="dictionary-label" #labelImport for="downloadDict">UMLS Dictionary</label>
+   <label class="openAI-label" #labelImport for="goToOpenAI">Open AI</label>
+   <!-- <div style="margin-top: 25%; margin-left: 24%; font-size: 18px; font-weight: bold;">
+        <a target="_blank" href="https://forms.office.com/Pages/ResponsePage.aspx?id=O_b9VyJ-o0WD3NNwAxY6roi2l6ty4FZCmt7PLVkvGT9UOUVOOE9TMjdBTUdBSjczOFRHSjNXUEg5Qy4u" style="color:blue"><u>Please click here to provide feedback on PLS test case execution</u></a>
+   </div>
+   <br>
+   <br>
+   <div style="margin-left: 24%;font-size: 18px; font-weight: bold;">
+        <a target="_blank" href="https://forms.office.com/Pages/ResponsePage.aspx?id=O_b9VyJ-o0WD3NNwAxY6roi2l6ty4FZCmt7PLVkvGT9UMk0yN1lPMDRNWVRTTFRZMDM2NDRWMVA2SC4u" style="color:blue"><u>Please click here to provide feedback on UMLS test case execution</u></a>
+   </div> -->
+  <!-- <div>We are working to create Manuscript Plain Language Summary <br> once its ready you'll be able to see ate the sidebar on the right</div> -->
+  <!-- <div class="progress" *ngIf="progress">
+    <div class="progress-bar bg-success" [style.width]="progress + '%'">{{progress}}%</div>
+</div> -->
+</div>
+ 
+  
+<div class="col-md-7 vertical">
+    <p class="headingsum">{{this.configObj.summaryListHeader}}</p>
+    <p class="pull-right refresh">
+        
+            <span class="glyphicon glyphicon-refresh" (click)="refresh()"></span>
+
+    </p>
+          
+<p class="plsengine" *ngIf ="summaries && summaries.length == 0">{{this.configObj.noSummaries}}</p>
+              <table class="table" *ngIf="summaries && summaries.length > 0">
+                  <thead>
+                      <tr>
+                       
+                          <th>FirstName</th>
+                          <th>LastName</th>
+                          <th>FileName</th>
+                         
+                          <th>Words</th>
+                          <th>Readablity</th>
+                          <th>Annotation Words</th>
+                          <th>Annotation Readablity</th>
+                          <th>Status</th>
+                          <th>Time</th>
+                          <th></th>
+                          <th></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let f of summaries | paginate: { itemsPerPage: 2, currentPage: p, totalItems:total }">
+                        <td class="user"> {{f.user_first_name}}</td>
+                        <td class="user"> {{f.user_last_name}}</td>
+                        <!-- <td *ngIf="f.status == 3" (click)="reAnnotateManuscript(f)" class="filename-clickable">{{f.name}}</td> -->
+                        <td *ngIf="f.status == 3" (click)="reAnnotateFile(f)" class="filename-clickable">{{f.name}}</td>
+                        <td *ngIf="f.status != 3">{{f.name}}</td>
+                   
+                        <td class="text">{{f.word_count ? f.word_count : '-'}}</td>
+                        <td class="text">{{f.readability_score | number  }}</td>
+                        <td class="text">{{f.annotation_word_count ? f.annotation_word_count : '-'}}</td>     
+                       
+                        <td class="text">{{f.annotation_readability_score | number  }}</td>
+                        <td class="text">
+                            {{f.status == 1 ? 'In Progress' : (f.status == 3 ? 'Success' : (f.status == 5 ? 'Queued' :'Failed'))}}
+                        </td>
+                        <td> {{f.date  | date:'medium'}}</td>
+                        <td (click)="exportFiles(f)" ><span class="glyphicon glyphicon-download-alt cursor"></span></td>
+                        <td><span (click)="deleteFile(f)" class="glyphicon glyphicon-trash cursor"></span></td>
+                       
+                       </tr>
+                  </tbody>
+              </table>
+              <pagination-controls *ngIf="summaries && summaries.length > 0" (pageChange)="serverPagination($event)" class="float-right"></pagination-controls><br><br><br>
+              <p style="margin-top: 45px;" class="headingsum">Manuscript in progress</p>
+              <div class="manusc">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th>FirstName</th>
+                          <th>LastName</th>
+                          <th>FileName</th>
+                          <th>Time</th>
+                          <th></th>
+                      </tr>
+                  </thead>
+                  <tbody class="table">
+                    <tr *ngFor ="let f of savelater">
+                        <td class="user"> {{f.user_first_name}}</td>
+                        <td class="user"> {{f.user_last_name}}</td>
+                        <td class="cursor">{{f.name}}</td>
+                        <td> {{f.date  | date:'medium'}}</td>
+                        <!-- <td (click)="editSaveLater(f)" class="glyphicon glyphicon-pencil cursor"></td> -->
+                        <td (click)="editSavedFile(f)" class="glyphicon glyphicon-pencil cursor"></td>
+                        <td (click) ="deleteFile(f)" class="glyphicon glyphicon-trash cursor"></td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- <p *ngIf ="viewdata">{{viewdata.name }}</p><p><span class="glyphicon glyphicon-download-alt"></span> <span class="glyphicon glyphicon-trash"></span> -->
+                <b><p style="font-size:20px; font-weight: bold;">Total manuscripts summarized : <b  style="color: red;">{{total}}</b></p></b>
+</div>
+
+</div>
+<div class="alert alert-success " role="alert" *ngIf="showMsg">
+    {{configObj.deleteConfirmedMsg}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+    
+
+  
+
+

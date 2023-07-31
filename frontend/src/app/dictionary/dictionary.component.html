@@ -1,0 +1,82 @@
+<div class="scroll-page">
+<br>
+<div class="mrgn-lft-2 header_style"><b>UMLS Dictionary</b></div>
+<br>
+<!-- <mat-form-field class="mrgn-lft-2">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Entity">
+</mat-form-field> -->
+<mat-form-field class="mrgn-lft-2">
+  <mat-label>Therapeutic Area</mat-label>
+  <mat-select [formControl]="therapeuticAreaForm" (selectionChange)="combinedFilterAndSearch()" multiple>
+    <mat-option *ngFor="let ta of therapeuticAreaList" [value]="ta">{{ta}}</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field class="mrgn-lft-2">
+  <input matInput placeholder="Search Entity" [(ngModel)] = "searchText">
+  <button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<button class="mrgn-lft-half" style="background-color: #0000FF; color: white;"  mat-flat-button  (click)="combinedFilterAndSearch()"><b>Search</b></button>
+
+<input type="file" multiple  id="importFile" accept=".csv, text/csv, application/csv" (change)="confirmation($event)" #uploadFileInput hidden/><label class="float-rt" style="background-color: #0000FF;" #labelImport for="importFile">Upload Dictionary</label>
+
+<!-- <label class="custom-file-label float-rt" #labelImport for="importFile">Upload Manuascript </label> -->
+<button mat-flat-button style="background-color: #0000FF; color: white;" (click)="downloadDictionary()" class="float-rt"><b>Download Dictionary</b></button>
+<button (click)="openDialog('Add',{})" mat-flat-button style="background-color: #0000FF; color: white;" class="float-rt"><b>Add Item</b></button>
+
+<div>
+    <table id="MaterialTable" mat-table [dataSource]="dataSource" class="mat-elevation-z8 table" matSort (matSortChange)="announceSortChange($event)">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Entity Column -->
+        <ng-container matColumnDef="entity">
+          <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header> Entity </th>
+          <td mat-cell *matCellDef="let element"> {{element.entity}} </td>
+        </ng-container>
+      
+        <!-- Simplified Term Column -->
+        <ng-container matColumnDef="simplifiedTerm">
+          <th mat-header-cell *matHeaderCellDef class="table-header"> Simplified Entity </th>
+          <td mat-cell *matCellDef="let element"> {{element.simplifiedTerm}} </td>
+        </ng-container>
+
+        <!-- Therapeutic Area Column -->
+        <ng-container matColumnDef="therapeuticArea">
+            <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header> Therapeutic Area </th>
+            <td mat-cell *matCellDef="let element"> {{element.therapeuticArea}} </td>
+        </ng-container>
+
+        <!-- Replace Column -->
+        <ng-container matColumnDef="replaceEntity">
+            <th mat-header-cell *matHeaderCellDef class="table-header"> Replace/Ignore/Acronym/Glossary </th>
+            <td mat-cell *matCellDef="let element" class="capitalize"> {{element.replaceEntity}} </td>
+        </ng-container>
+
+         <!-- createdDate Column -->
+         <ng-container matColumnDef="createdDate">
+            <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header> Created Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
+          </ng-container>
+
+        <!--Action Column-->
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef class="table-header"> Action </th>
+            <td mat-cell *matCellDef="let element" class="action-link"> 
+              <a (click)="openDialog('Update',element)">Update</a> | 
+              <a (click)="openDeleteDialog('Delete',element)">Delete</a>  
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns | paginate: { itemsPerPage: 10, currentPage: p, totalItems: totalRows }"></tr>
+      </table>
+      <!-- <mat-paginator  
+                 showFirstLastButtons                
+                 >
+  </mat-paginator> -->
+  <pagination-controls (pageChange)="onPageChange($event);" ></pagination-controls>
+</div>
+</div>

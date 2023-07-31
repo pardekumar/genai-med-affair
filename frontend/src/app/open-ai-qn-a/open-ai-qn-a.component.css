@@ -1,0 +1,22 @@
+.main-content {
+    margin: 8% 15%;
+}
+
+.main-content h1 {
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom:45px;
+}
+
+.main-content p {
+    font-size: 12px;
+}
+
+.main-content input {
+    width: 100%;
+    border: 0;
+    background: #dce5eb;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+}

@@ -1,0 +1,268 @@
+#the-canvas {
+    border: 1px solid black;
+    direction: ltr;
+  }
+
+  #text-layer { 
+    position: absolute;
+     left: 0;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     /* opacity: 0.2; */
+     overflow: hidden;
+     line-height: 1.0;
+ }
+ 
+ #text-layer > div {
+     color: transparent;
+     position: absolute;
+     white-space: pre;
+     cursor: text;
+     transform-origin: 0% 0%;
+ }
+
+
+ #pdf-viewer {
+  /* width: 60%; */
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+
+  .pdf-page-canvas {
+    display: block;
+    /* margin: 5px auto; */
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .position-relative{
+    position: relative;
+  }
+
+  .pointer{
+    cursor: pointer;
+  }
+
+  html{
+    scroll-behavior: smooth;
+  }
+
+  .example-tree-invisible {
+    display: none;
+  }
+  
+  .example-tree ul,
+  .example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+  
+  /*
+   * This padding sets alignment of the nested nodes.
+   */
+  .example-tree .mat-nested-tree-node div[role=group] {
+    padding-left: 40px;
+  }
+  
+  /*
+   * Padding for leaf nodes.
+   * Leaf nodes need to have padding so as to align with other non-leaf nodes
+   * under the same parent.
+   */
+  .example-tree div[role=group] > .mat-tree-node {
+    padding-left: 40px;
+  }
+
+  .sidenav {
+    width: 26%;
+    position: fixed;
+    z-index: 1;
+   /*  top: 10%; */
+    left: 10px;
+   /*  background: red; */
+    overflow: hidden;
+    /* padding: 8px 0; */
+    height: 97%;
+    max-height: 97%;
+  }
+  /*175% scale*/
+  @media screen and (max-width:1164px) {
+    .sidenav {max-height: 77%;}
+  }
+  /*150% scale*/
+  @media screen and (min-width:1165px) and (max-width:1423px) {
+    .sidenav {max-height: 85%;}
+  }
+  
+  @media screen and (min-width:1424px) and (max-width: 1600px) {
+    .sidenav {max-height: 92%;}
+  }
+  /*125% scale*/
+  @media screen and (min-width:1601px) and (max-width: 1745.9px) {
+    .sidenav {max-height: 94%;}
+  }
+
+  @media screen and (min-height:480px) and (max-height:544px) {
+    .sidenav {max-height: 76.5%;}
+  }
+
+  @media screen and (min-height:545px) and (max-height:625px) {
+    .sidenav {max-height: 81%;}
+  }
+  @media screen and (min-height:626px) and (max-height:794px) {
+    .sidenav {max-height: 87%;}
+  }
+  @media screen and (min-height:795px) and (max-height: 890px) {
+    .sidenav {max-height: 94%;}
+  }
+
+  a{
+    color: darkblue;
+  }
+
+  .navbar {
+    overflow: hidden;
+    /* background-color: floralwhite; */
+    /* position: fixed; */ /* Set the navbar to fixed position */
+    top: 1; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 500;
+    margin-bottom: 2px;
+    box-shadow: 0 2px 2px lightgrey;
+  }
+
+  /* Main content */
+.main {
+  /* margin-top: 3%; */ /* Add a top margin to avoid content overlay */
+  overflow-x: hidden;
+}
+
+.zoom-btn{
+  width: 3%;
+  height: 30px;
+  font-size: 20px;
+}
+
+/* Dotted red border */
+hr.new3 {
+  border-top: 1px dotted orange;
+}
+
+.upload-btn{
+    background-color: rgb(245, 58, 58);
+    color: white;
+    padding: 0.5rem;
+    font-family: sans-serif;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    width: 500px;
+    left: 200px;
+    top: 40px;
+    text-align: center;
+    font-size: medium;
+}
+
+.large-select-panel{
+  min-width: 140% !important;
+}
+
+.color-orange{
+  color: orange;
+}
+
+.color-teal{
+  color: teal;
+}
+
+.color-blue{
+  color: blue;
+}
+
+.color-green{
+  color: green;
+}
+
+.example-handle {
+  display: flex;
+  float: left;
+  color: gray;
+  cursor: move;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.left-panel-box {
+  border: 2px solid #000; 
+  border-radius: 5px; 
+  height: 41%; 
+  background-color: white; 
+  overflow-y: auto;
+}
+
+.annotation-box-label {
+  text-align: center; 
+  color: black; 
+  font-weight: 600; 
+  background-color: #E5E4E2; 
+  font-size: 1.2rem
+}
+
+.annotated-notes {
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical; 
+  display: -webkit-box; 
+  overflow: hidden; 
+  cursor: pointer; 
+  margin-left: 1%;
+}
+
+.section {
+  text-transform: capitalize; 
+  margin-left: 1%; 
+  font-size: 16px; 
+  display: flex; 
+  float: left; 
+  margin-top: 3px;
+}
+
+button.mat-raised-button:disabled {
+    background-color: rgb(244, 242, 241) !important;
+    color: darkgray !important;
+}
+
+.mat-tooltip {
+  font-size: 13px !important;
+}
+
+.table-data {
+ border: 1px solid #000;
+ padding: 5px 5px;
+ border-radius: 3px;
+ font-size: 15px;
+ font-weight: bold;
+ color: gray;
+}

@@ -1,0 +1,17 @@
+.main-content {
+    margin: 8% 15%;
+}
+
+.main-content h1 {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.main-content p {
+    font-size: 12px;
+}
+
+.main-content ul {
+    padding-left: 16px;
+    font-size: 12px;
+}

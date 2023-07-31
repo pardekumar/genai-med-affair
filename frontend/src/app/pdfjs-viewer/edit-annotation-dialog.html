@@ -1,0 +1,11 @@
+<mat-form-field appearance="fill" style="width: 100%; height: 85%;">
+    <textarea matInput 
+        rows="17"
+        id="preloadedAnnotation"
+        [formControl]="editForm"
+        style="width: 100% !important; height: 100%"></textarea>
+</mat-form-field>
+<div mat-dialog-actions style="margin-left: 40%;">
+    <button mat-stroked-button (click)="saveNewAnnotation()">Save</button>
+    <button mat-flat-button color="warn" (click)="onNoClick()">Cancel</button>  
+</div>

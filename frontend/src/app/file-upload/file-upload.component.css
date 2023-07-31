@@ -1,0 +1,226 @@
+:host ::ng-deep .custom-spinner .p-progress-spinner-circle {
+    animation: custom-progress-spinner-dash 1.5s ease-in-out infinite, custom-progress-spinner-color 6s ease-in-out infinite;
+}
+
+@keyframes custom-progress-spinner-color {
+    100%,
+    0% {
+        stroke: #16697A;
+    }
+    40% {
+        stroke: #489FB5;
+    }
+    66% {
+        stroke: #82C0CC;
+    }
+    80%,
+    90% {
+        stroke: #FFA62B;
+    }
+}
+
+@keyframes custom-progress-spinner-dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+#semiTransparenDiv {
+	width:100%;
+	
+	/*-Lets Center the Spinner-*/
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    
+    /*Centering my shade */
+    margin-bottom: 40px;
+    margin-top: 60px;
+    
+    background-color: rgba(255,255,255,0.7);
+    z-index:999;
+    display: none; 
+}
+#semiTransparenDivOnLoad {
+	width:100%;
+	
+	/*-Lets Center the Spinner-*/
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    
+    /*Centering my shade */
+    margin-bottom: 40px;
+    margin-top: 60px;
+    
+    background-color: rgba(255,255,255,0.7);
+    z-index:999;
+    display: none; 
+}
+/* #semiTransparenDiv::after {
+    content:'';
+    display:block;
+    position:absolute;
+    left:48%;top:40%;
+    width:80px;height:80px;
+    border-style:solid;
+    border: 5px solid black;
+	  border-top-color: #6CC4EE;
+    border-width: 7px;
+    border-radius:50%;
+    -webkit-animation: spin .8s linear infinite;
+    animation: spin .8s linear infinite;
+} */
+
+.progress-spinner {
+    position: fixed;
+    z-index: 9999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin-top:250px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+
+/* .file-upload-button {
+    background-color: #ff5252;
+    border-radius: 50%;
+    height: 3rem;
+    overflow: hidden;
+    position: relative;
+    width: 3rem;
+
+  &::after {
+    content: '⇪';
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+  } 
+
+   input[type="file"] {
+        font-size: 100px;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+    }
+}
+
+.file-info {
+  color: #999;
+  font-family: Lato;
+  margin-left: 0.5rem;
+} */
+.file-info{
+  display: inline;
+  font-size: 12px;
+}
+.benchmark-list{
+  overflow: auto;
+  height: 300px;
+  border-style: groove;
+  overflow-y: scroll; overflow-x:hidden;
+}
+.list-css{
+    padding: 5px;
+    font-size: 13px;
+    border-bottom:1px solid rgba(0,0,0,.125);
+    border-top:none;
+border-left: none;
+border-right:none;
+border-radius: unset;
+}
+.label-title{
+  font-size: 15px;
+  color: green;
+  font-weight: 600
+}
+.demo{
+   overflow: auto;
+  height: 200px;
+  /* border-style: groove; */
+  box-shadow: 0 0 5px #888;
+  overflow-y: scroll; overflow-x:hidden;
+  padding:0px;
+  word-break: break-all;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.tooltip-style{
+    background-color: #0076a8;
+    color :#fff;
+    font-size: 12px;
+    width: 100%;
+  }
+
+  .file-message{
+    font-size: 14px;
+    color:#a7a1a1;
+  }
+
+  :host ::ng-deep .p-message-custom {
+    background-color: #E1CFE7;
+    border: solid #8A427A;
+    border-width: 0 0 0 6px;
+    color: #2c1e30;
+}
+
+:host ::ng-deep .p-message-close-icon {
+    color: #2c1e30;
+}
+.label-title-phy{
+  font-size: 15px;
+  color:#da5283;
+  font-weight: 600
+}
+.tooltip-size{
+  font-size: 20px;
+}
+
+.button-font{
+  font-size: 14px;
+}
+
+.question-icon{
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/deep/ .p-tooltip .p-tooltip-text {
+	 background-color: #f6f7f9;
+    font-size: 12px;
+    color: black;
+    white-space:pre-wrap;
+    overflow-wrap: break-word;
+    position: relative;
+    border: 1px solid #55AAAA;
+	max-width: 200px;
+}
+/deep/ .p-tooltip.p-tooltip-right .p-tooltip-arrow {
+    border-right-color: #55AAAA;
+  }
+.disabled {
+  cursor: none;
+  opacity: .5;
+  pointer-events: none;
+}

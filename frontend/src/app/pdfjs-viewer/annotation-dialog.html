@@ -1,0 +1,27 @@
+<span style="margin: 0px; display: inline; float: left;"><h1 mat-dialog-title><strong>Target PLS Section</strong></h1></span>
+<span style="margin-top: 5px;display: inline;align-items: center; float: right; border: 1px solid red; border-radius: 5px;"><p style="font-size:19px; font-weight: bold; padding: 0 2px; color: grey">Selected words : <b  style="color: red;">{{local_data.selectedWords}}</b></p></span>
+<div mat-dialog-content style="display: inherit;" [formGroup]="form">
+    <mat-form-field style="display: block; width: 265px; margin-top: 15%;" appearance="fill">
+        <mat-label>Sections</mat-label>
+        <mat-select formControlName="formSectionName" panelClass="large-select-panel" required>
+            <mat-select-trigger style="text-transform: capitalize;">{{ form.value.formSectionName }}</mat-select-trigger>
+            <mat-option *ngFor="let section of sections" [value]="section.value" style="line-height: 0.5em; height: 14em; min-width: min-content" multiLineOption>             
+                <h2 style="text-transform: capitalize;">{{section.viewValue}}</h2>
+                <p *ngFor="let question of section.questions"><mat-icon inline>fiber_manual_record</mat-icon>{{question}}</p>
+            </mat-option>
+        </mat-select>
+        <!-- <mat-select formControlName="formQuestions" multiple>
+            <mat-select-trigger>{{ groupName }}</mat-select-trigger>
+            <mat-optgroup *ngFor="let section of sections" [label]="section.value"
+            style="line-height: 0.5em; height: 10em; min-width: min-content" [disabled]='section.disable'>
+              <mat-option *ngFor="let question of section.questions" [value]="question" style="min-width: min-content;" (onSelectionChange)="optionSelected($event)">
+                {{question}}
+              </mat-option>
+            </mat-optgroup>
+          </mat-select> -->
+    </mat-form-field>
+</div>
+<div style="margin-top: 110px;" mat-dialog-actions>
+    <button mat-stroked-button color="primary"  (click)="doAction()" [disabled]="form.invalid" style="width: 110px;">Save</button>
+    <button mat-flat-button color="primary" (click)="onNoClick()" style="width: 110px;">Cancel</button>  
+</div>

@@ -1,0 +1,102 @@
+/* General Styles */
+body {
+    background-color: #ffffff;
+ 
+    background-attachment: fixed;
+    background-size: cover;
+    overflow-y: hidden;
+}
+
+textarea {
+    width: 20em !important;
+}
+
+/* Popover Styles */
+#annotate_settings {
+    background: #FFF;
+    border-radius: 4px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px 8px;
+    z-index: 2000;
+    width: 433px;
+}
+
+#annotate_settings[data-show] {
+    display: block;
+}
+
+#arrow,
+#arrow::before {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    z-index: -1;
+}
+
+#arrow::before {
+    content: '';
+    transform: rotate(45deg);
+    background: #FFF;
+    box-shadow: -4px -4px 5px #00000012;
+}
+
+#annotate_settings[data-popper-placement^='top']>#arrow {
+    bottom: -4px;
+}
+
+#annotate_settings[data-popper-placement^='bottom']>#arrow {
+    top: -4px;
+}
+
+#annotate_settings[data-popper-placement^='left']>#arrow {
+    right: -4px;
+}
+
+#annotate_settings[data-popper-placement^='right']>#arrow {
+    left: -4px;
+}
+
+/* Semantic UI Overrides */
+.ui.floating {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2001;
+}
+
+.ui.segment {
+    margin: 0.5rem !important;
+}
+
+.ui.card>.content {
+    height: 83vh !important;
+    overflow-y: auto;
+}
+
+.ui.feed>.event>.content .example.text {
+    font-size: 1.2em;
+    line-height: 1.6285em;
+    max-width: 100%;
+    
+    padding: 0.25em;
+}
+
+/* Utilities */
+.p-around_small {
+    margin: 1rem !important;
+}
+
+.m-bottom_medium {
+    margin-bottom: 2rem !important;
+}
+
+.m-bottom_x-small {
+    margin-bottom: 1rem !important;
+}
+
+/* Custom Styles */
+.love {
+    color: #ff2733;
+}

@@ -1,0 +1,73 @@
+.highlight{
+    color:red;
+}
+  .bord{
+  border: 2px solid black;
+  width: 360px !important;
+}
+.ell{
+  max-height: 150px;
+  overflow: auto;
+} 
+
+/* .bodypart{
+
+top: 100px;
+} */
+ .customposition{
+    margin: 0px !important;
+    position: absolute !important;
+    inset: 0px auto auto 0px !important;
+    transform: translate(900px, 400px) !important;
+} 
+
+.ui.dropdown>.animating.menu .scrolling.menu, .ui.dropdown>.visible.menu .scrolling.menu {
+  height: 240px !important;
+}
+/* .custom{
+
+  top: 58px;
+  left: 88%;
+} */
+.fade.in {
+  opacity: 1 !important;
+}
+.modal-content {
+  top: 100px !important;
+}
+.ui.card>.content {
+height: 100px;
+  overflow: auto;
+}
+.left{
+  left: 10px !important;
+}
+ol,ul{
+  margin-bottom: 2px !important;
+}
+.ui.grid.container{
+  width: 100% !important;
+}
+.width1{
+  width: 115% !important;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+
+
+.loading{
+  position: absolute;
+top: 400px;
+left: 400px;
+ 
+}
+.bor{
+  border: 2px solid #cacbcd;
+  background-color: rgb(245, 58, 58);
+  color: white;
+  }
+/* .text{
+  pointer-events: 
+} */
+

@@ -1,0 +1,26 @@
+.back-color{
+    /* box-shadow: 0 5px 5px -6px black; */
+    -moz-box-shadow: 0 0 5px #888;
+   -webkit-box-shadow: 0 0 5px#888;
+   box-shadow: 0 0 5px #888;
+   padding-bottom: 3px;
+   padding-top: 2px;
+ 
+   top: 0;
+   width: 100%;
+   z-index:1000;
+   background-color: #fff;
+   }
+   .footer-css{
+       position: fixed;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       text-align: center;
+       background-color: #eae8e4;
+       z-index: 1000;
+   }
+ 
+   html{
+    scroll-behavior: smooth;
+  }

@@ -1,0 +1,90 @@
+<!-- <p>pdfjs-viewer works!</p>
+ -->
+ <div class="navbar">
+    <div style="width: 100%; display: flex;">
+      <span style="margin-top: 5px; font-weight: bold; font-size: 18px; color: grey;"><p>Annotated words: </p></span>
+      <table class="table-data">
+      <tr>
+       <td class="table-data">Objectives : <b style="color: blue;">{{objectiveWords}}</b></td>
+       <td class="table-data">Methods : <b style="color: blue;">{{methodWords}}</b></td>
+       <td class="table-data">Results : <b style="color: blue;">{{resultWords}}</b></td>
+       <td class="table-data">Conclusions : <b style="color: blue;">{{conclusionWords}}</b></td>
+       <td class="table-data" style="color: black; font-weight: 900;">Total : <b style="color: blue;">{{totalWordCount}}</b></td>
+      </tr>
+      </table>
+       <span matTooltip="Please annotate to enable this button." style="margin-left: 15%;" [matTooltipDisabled]="annotationObject">
+         <button mat-raised-button color="primary" (click)="createPLS()" [disabled] = "!annotationObject">Create PLS</button>
+       </span>
+       <span  style="margin-left: 1%;"><button mat-raised-button color="primary" (click)="saveForLater()">Save For Later</button></span>
+       <span  style="margin-left: 1%;"><button mat-raised-button color="primary" (click)="discard()">Discard</button></span>
+       <!-- <span style="margin-left: 14%;border: 1px solid red;border-radius: 5px;display: flex;align-items: center;"><b><p style="font-size:20px; font-weight: bold; padding: 0 5px;">Total annotated words : <b  style="color: red;">{{totalWordCount}}</b></p></b></span> -->
+       <!-- <span *ngIf="selectedWords" style="margin-left: 1%;border: 1px solid red;border-radius: 5px;display: flex;align-items: center;"><b><p style="font-size:20px; font-weight: bold; padding: 0 5px;">Currently selected words : <b  style="color: red;">{{selectedWords}}</b></p></b></span> -->
+    </div>
+ </div>
+ <!-- <mat-spinner *ngIf="matSpinner" style="display: flex; margin-left: 50%; margin-top: 5%; position: absolute; z-index: 1;"
+ color="warn">
+</mat-spinner> -->
+<div *ngIf="matSpinner" style="margin-left: 60%; margin-top: 5%; position: absolute; z-index: 1">
+   <img [src]="imgurl">
+   <div>Please wait...</div>
+</div>
+ <div class="main" style="margin-left: 1%; margin-right: 1%;overflow-y: scroll;height: 82%;">
+    <!-- <div id="container" style="margin-left: 4%;"> -->
+       <div class="row">
+          <div class="col-md-3" style="flex: 0 0 27%; max-width: 27%;">
+             <!-- <a>{{pdfOutline?.title}}</a> -->
+             <div class="sidenav">
+                <div id="tocBox" class="left-panel-box" style="border:transparent">
+                   <!--<div *ngIf="dataSource.data.length==0" style="font-size: 18px; overflow: hidden;"><b>{{tocMessage}}</b></div>
+                   <div *ngIf="dataSource.data.length!=0" class="annotation-box-label">Table Of Contents</div>-->
+                   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree" style="height: 100%;">
+                      <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+                         <a class="pointer" (click) = "scrollToPage(node?.dest)">{{node?.title}}</a>
+                      </mat-tree-node>
+                      <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+                         <div class="mat-tree-node">
+                            <button mat-icon-button matTreeNodeToggle
+                                  [attr.aria-label]="'Toggle ' + node?.title">
+                            <mat-icon class="mat-icon-rtl-mirror">
+                               {{treeControl.isExpanded(node) ? 'chevron_right' : 'expand_more'}}
+                            </mat-icon>
+                            </button>
+                            <a class="pointer" (click) = "scrollToPage(node?.dest)">{{node?.title}}</a>
+                         </div>
+                         <div [class.example-tree-invisible]="treeControl.isExpanded(node)"
+                            role="group">
+                            <ng-container matTreeNodeOutlet></ng-container>
+                      </div>
+                      </mat-nested-tree-node>
+                   </mat-tree>
+                </div>
+                <br>
+                <div id="annotationBox" class="left-panel-box">
+                   <div class="annotation-box-label">Saved Annotations</div>
+                   <div id="savedSections" *ngIf="annotationObject">
+                      <div *ngFor="let savedValue of annotationObject" style="border: 2px solid lightgrey; border-radius: 5px; margin: 2px;">
+                        
+                            <b class="section color-{{savedValue.color}}">{{savedValue.type}}</b>
+                            
+                            <mat-icon style="cursor: pointer; float: right;" (click)="removeAnnotation($event)">delete</mat-icon>
+                            <mat-icon style="cursor: pointer; margin-left: 86%; display: flex;" (click)="OpenEditAnnotationDialog(savedValue.notes, savedValue, $event)">create</mat-icon>
+         
+                         <div class="annotated-notes" (click)="clickMe(savedValue.originalNotes)">
+                            {{savedValue.notes}}
+                         </div>
+                      </div>
+                   </div>
+                </div>   
+                <br>    
+             </div>
+          </div>
+          <div class="col-md-9" style="padding-left: 0px; overflow-x: scroll; flex: 0 0 73%; max-width: 73%;">
+            <div id="canvasLayer" style="transform: scale(1); transform-origin: 0% 0% 0px;">
+               <div id="pdf-viewer" style="width: fit-content; box-shadow: 0 15px 25px rgb(0 0 0 / 25%); margin-left: 2%;"></div>
+               <div id="pdf-text-layer" #one></div>
+            </div>
+          </div>
+          <div></div>
+       </div>
+ </div>
+ 
